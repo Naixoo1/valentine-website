@@ -1,0 +1,359 @@
+.final-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffd1ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Confetti Animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confettiFall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Celebration Hearts */
+.celebration-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.celebration-heart {
+  position: absolute;
+  animation: celebrateHeart 8s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+@keyframes celebrateHeart {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.final-card {
+  background: white;
+  border-radius: 40px;
+  padding: 60px 50px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 40px 100px rgba(255, 105, 180, 0.4);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  border: 5px solid #ffe0f0;
+}
+
+.celebration-banner {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 36px;
+  font-weight: 700;
+  margin: -80px auto 40px;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+}
+
+.final-content {
+  position: relative;
+}
+
+.final-title {
+  font-size: 48px;
+  color: var(--primary-pink);
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+.final-message {
+  font-size: 18px;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hearts-explosion {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.hearts-explosion span {
+  animation: heartPop 1s infinite alternate;
+  display: inline-block;
+}
+
+.hearts-explosion span:nth-child(1) { animation-delay: 0s; }
+.hearts-explosion span:nth-child(2) { animation-delay: 0.1s; }
+.hearts-explosion span:nth-child(3) { animation-delay: 0.2s; }
+.hearts-explosion span:nth-child(4) { animation-delay: 0.3s; }
+.hearts-explosion span:nth-child(5) { animation-delay: 0.4s; }
+.hearts-explosion span:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes heartPop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.3) rotate(15deg);
+  }
+}
+
+.final-image {
+  margin: 40px 0;
+}
+
+.heart-circle {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #ffe0f0 0%, #ffc0dd 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(255, 105, 180, 0.5);
+  }
+}
+
+.mega-heart {
+  font-size: 100px;
+  animation: heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+.closing-message {
+  font-size: 17px;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin: 30px 0;
+}
+
+.closing-message strong {
+  color: var(--primary-pink);
+  font-size: 20px;
+}
+
+.quote-section {
+  background: linear-gradient(135deg, #ffe0f0 0%, #fff0f7 100%);
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 40px;
+  border-left: 5px solid var(--primary-pink);
+}
+
+.quote-text {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.quote-author {
+  font-size: 14px;
+  color: #666;
+  text-align: right;
+}
+
+.sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 20px;
+  animation: sparkleAnim 2s infinite;
+}
+
+@keyframes sparkleAnim {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.firework {
+  position: absolute;
+  top: 20%;
+  font-size: 60px;
+  animation: fireworkBurst 3s infinite;
+}
+
+@keyframes fireworkBurst {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-100px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .final-card {
+    padding: 40px 25px;
+  }
+
+  .celebration-banner {
+    font-size: 28px;
+    padding: 12px 25px;
+    margin-top: -70px;
+  }
+
+  .final-title {
+    font-size: 36px;
+  }
+
+  .final-message {
+    font-size: 16px;
+  }
+
+  .hearts-explosion {
+    font-size: 30px;
+    gap: 10px;
+  }
+
+  .heart-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .mega-heart {
+    font-size: 70px;
+  }
+
+  .closing-message {
+    font-size: 15px;
+  }
+
+  .closing-message strong {
+    font-size: 17px;
+  }
+
+  .quote-section {
+    padding: 20px;
+  }
+
+  .quote-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .final-card {
+    padding: 30px 20px;
+  }
+
+  .celebration-banner {
+    font-size: 24px;
+  }
+
+  .final-title {
+    font-size: 30px;
+  }
+
+  .hearts-explosion {
+    font-size: 25px;
+  }
+}

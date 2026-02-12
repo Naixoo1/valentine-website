@@ -1,0 +1,329 @@
+.music-photos-container {
+  min-height: 200vh;
+  position: relative;
+  background: linear-gradient(180deg, #fff0f6 0%, #ffe6f2 50%, #ffd9ec 100%);
+  overflow-x: hidden;
+}
+
+.floating-hearts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart-float {
+  position: absolute;
+  animation: floatUp 15s infinite ease-in-out;
+  opacity: 0.3;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Music Section */
+.music-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.music-card-wrapper {
+  position: relative;
+}
+
+.music-card {
+  background: white;
+  border-radius: 40px;
+  padding: 60px 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 30px 80px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.vinyl-record {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  position: relative;
+  animation: spin 4s linear infinite;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl-inner {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ff69b4 0%, #ff1493 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+.music-title {
+  font-size: 28px;
+  color: var(--primary-pink);
+  margin-bottom: 20px;
+  font-family: 'Pacifico', cursive;
+}
+
+.song-info h3 {
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.song-info p {
+  font-size: 16px;
+  color: #666;
+}
+
+.music-note {
+  font-size: 60px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Photo Gallery Section */
+.photo-gallery {
+  min-height: 100vh;
+  padding: 60px 20px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.photo-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.photo-decoration {
+  position: absolute;
+  opacity: 0.7;
+  animation: floatDecor 12s infinite ease-in-out;
+}
+
+@keyframes floatDecor {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+/* Small scattered photos around the main music card */
+.music-photo-scatter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460px;
+  height: 460px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.music-photo-frame {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+.music-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 36px;
+  color: var(--primary-pink);
+  margin-bottom: 80px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+.photos-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 1400px;
+}
+
+.photo-frame {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+  pointer-events: none;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.photo-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 25px;
+  background: rgba(255, 223, 186, 0.7);
+  border: 1px solid rgba(200, 180, 150, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Continue Section */
+.continue-section {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.continue-btn {
+  background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .music-card {
+    padding: 40px 25px;
+  }
+
+  .vinyl-record {
+    width: 150px;
+    height: 150px;
+  }
+
+  .vinyl-inner {
+    width: 60px;
+    height: 60px;
+  }
+
+  .music-title {
+    font-size: 22px;
+  }
+
+  .song-info h3 {
+    font-size: 18px;
+  }
+
+  .gallery-title {
+    font-size: 28px;
+  }
+
+  .photos-container {
+    height: 1800px;
+  }
+
+  .photo-frame {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+  }
+
+  .continue-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
