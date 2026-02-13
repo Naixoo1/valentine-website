@@ -43,7 +43,7 @@ export const musicConfig = {
   songUrl: "https://youtu.be/r_nbv4_t8yQ?si=ZeNSDQiOCYCreVvB", // Replace with your chosen song URL
   songTitle: "Thinking Out Loud",
   artist: "Ed Sheeran",
-  message: "This song reminds me of you... "
+  message: "Song that reminds me of you? "
 }
 
 // Photo URLs Configuration (Add your photo URLs here)

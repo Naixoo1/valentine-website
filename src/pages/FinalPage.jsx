@@ -74,9 +74,8 @@ const FinalPage = () => {
           </h1>
 
           <p className="final-message">
-            I'm so happy you'll be my Valentine! 
-            This means the world to me, and I can't wait 
-            to make this day (and every day) special for you.
+          認識你比我想像的還要開心。
+          我真心希望有一天我們能發展成戀人關係。
           </p>
 
           <div className="hearts-explosion">
@@ -104,8 +103,7 @@ const FinalPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-          >
-            Thank you for making me the happiest person alive! 
+          > 
             <br />
             <strong>Happy Valentine's Day! 💖</strong>
           </motion.p>
