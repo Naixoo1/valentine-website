@@ -6,11 +6,16 @@ import MessagePage from './pages/MessagePage'
 import ProposalPage from './pages/ProposalPage'
 import FinalPage from './pages/FinalPage'
 import AdminPage from './pages/AdminPage'
+import { syncLocalStorageToSupabase } from './lib/valentineService'
 
 function App() {
   const [questionsAnswered, setQuestionsAnswered] = useState(false)
 
   useEffect(() => {
+    // Sync any existing localStorage data to Supabase right away
+    // (so her previous answers show on admin without refilling)
+    syncLocalStorageToSupabase()
+
     // Check if questions have been answered
     const answered = localStorage.getItem('questionsAnswered')
     setQuestionsAnswered(answered === 'true')

@@ -11,7 +11,7 @@ A beautiful, interactive Valentine's Day website built with React, featuring que
 - **🎉 Celebration Page**: Beautiful celebration with confetti and animations
 - **📱 Mobile-First Design**: Fully responsive and optimized for all devices
 - **✨ Smooth Animations**: Powered by Framer Motion
-- **💾 Local Storage**: Saves user responses locally
+- **💾 Shared Backend**: Saves responses to Supabase so you can view her answers from any device (see [SUPABASE_SETUP.md](SUPABASE_SETUP.md))
 
 ## 🗂️ Project Structure
 

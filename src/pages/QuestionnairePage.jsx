@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { adminQuestions } from '../config/adminConfig'
+import { saveAnswers, markQuestionsAnswered } from '../lib/valentineService'
 import './QuestionnairePage.css'
 
 const QuestionnairePage = ({ onComplete }) => {
@@ -14,7 +15,7 @@ const QuestionnairePage = ({ onComplete }) => {
     setCurrentAnswer(e.target.value)
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!currentAnswer.trim()) return
 
     const newAnswers = {
@@ -27,8 +28,9 @@ const QuestionnairePage = ({ onComplete }) => {
       setCurrentQuestion(currentQuestion + 1)
       setCurrentAnswer('')
     } else {
-      // Save all answers to localStorage
-      localStorage.setItem('userAnswers', JSON.stringify(newAnswers))
+      // Save to Supabase (shared) and localStorage (fallback)
+      await saveAnswers(newAnswers)
+      markQuestionsAnswered()
       onComplete()
       navigate('/music')
     }

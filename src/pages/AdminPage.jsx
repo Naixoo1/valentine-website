@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { adminQuestions } from '../config/adminConfig'
+import { getSubmission, clearSubmission } from '../lib/valentineService'
 import './AdminPage.css'
 
 const AdminPage = () => {
@@ -32,16 +33,12 @@ const AdminPage = () => {
     }
   }, [isAuthenticated])
 
-  const loadAnswers = () => {
-    const answers = localStorage.getItem('userAnswers')
-    const vAnswer = localStorage.getItem('valentineAnswer')
-    
-    if (answers) {
-      setUserAnswers(JSON.parse(answers))
-    }
-    if (vAnswer) {
-      setValentineAnswer(vAnswer)
-    }
+  const loadAnswers = async () => {
+    const { userAnswers: answers, valentineAnswer: vAnswer } = await getSubmission()
+    if (answers) setUserAnswers(answers)
+    else setUserAnswers(null)
+    if (vAnswer) setValentineAnswer(vAnswer)
+    else setValentineAnswer(null)
   }
 
   const handleLogin = (e) => {
@@ -63,11 +60,9 @@ const AdminPage = () => {
     navigate('/')
   }
 
-  const clearAllData = () => {
+  const clearAllData = async () => {
     if (window.confirm('Are you sure you want to clear all data?')) {
-      localStorage.removeItem('userAnswers')
-      localStorage.removeItem('valentineAnswer')
-      localStorage.removeItem('questionsAnswered')
+      await clearSubmission()
       setUserAnswers(null)
       setValentineAnswer(null)
       alert('All data cleared!')

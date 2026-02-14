@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { saveValentineAnswer } from '../lib/valentineService'
 import './ProposalPage.css'
 
 const ProposalPage = () => {
@@ -9,9 +10,8 @@ const ProposalPage = () => {
   const [yesSize, setYesSize] = useState(1)
   const [noSize, setNoSize] = useState(1)
 
-  const handleYesClick = () => {
-    // Save the answer and navigate to final page
-    localStorage.setItem('valentineAnswer', 'yes')
+  const handleYesClick = async () => {
+    await saveValentineAnswer('yes')
     navigate('/final')
   }
 
